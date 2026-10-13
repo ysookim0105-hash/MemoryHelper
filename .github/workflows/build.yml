@@ -23,7 +23,9 @@ jobs:
           mkdir -p gradle/wrapper
           curl -sL https://services.gradle.org/distributions/gradle-8.4-bin.zip -o /tmp/gradle-8.4.zip
           unzip -q /tmp/gradle-8.4.zip -d /tmp/gradle-dist
-          cp /tmp/gradle-dist/gradle-8.4/lib/gradle-wrapper-8.4.jar gradle/wrapper/gradle-wrapper.jar
+          WRAPPER_JAR=$(find /tmp/gradle-dist -name "gradle-wrapper*.jar" | head -1)
+          echo "Found wrapper jar: $WRAPPER_JAR"
+          cp "$WRAPPER_JAR" gradle/wrapper/gradle-wrapper.jar
 
       - name: Make gradlew executable
         run: chmod +x gradlew
