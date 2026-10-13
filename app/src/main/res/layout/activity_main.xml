@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1117"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기억력 게임 보조"
+            android:textColor="#818CF8"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Region section -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="카드 격자 영역 (%)" android:textColor="#64748B"
+            android:textSize="12sp" android:textAllCaps="true" android:letterSpacing="0.08"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#161B27" android:padding="16dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="64dp" android:layout_height="wrap_content"
+                    android:text="왼쪽" android:textColor="#94A3B8" android:textSize="13sp" />
+                <SeekBar android:id="@+id/slLeft" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:max="100" android:progressTint="#818CF8" android:thumbTint="#818CF8" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="64dp" android:layout_height="wrap_content"
+                    android:text="위" android:textColor="#94A3B8" android:textSize="13sp" />
+                <SeekBar android:id="@+id/slTop" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:max="100" android:progressTint="#818CF8" android:thumbTint="#818CF8" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <TextView android:layout_width="64dp" android:layout_height="wrap_content"
+                    android:text="오른쪽" android:textColor="#94A3B8" android:textSize="13sp" />
+                <SeekBar android:id="@+id/slRight" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:max="100" android:progressTint="#818CF8" android:thumbTint="#818CF8" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:layout_width="64dp" android:layout_height="wrap_content"
+                    android:text="아래" android:textColor="#94A3B8" android:textSize="13sp" />
+                <SeekBar android:id="@+id/slBottom" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:max="100" android:progressTint="#818CF8" android:thumbTint="#818CF8" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Grid size -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="격자 크기" android:textColor="#64748B"
+            android:textSize="12sp" android:textAllCaps="true" android:letterSpacing="0.08"
+            android:layout_marginTop="20dp" android:layout_marginBottom="12dp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#161B27" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="열" android:textColor="#94A3B8" android:textSize="13sp"
+                android:layout_gravity="center_vertical" android:layout_marginEnd="12dp" />
+            <Spinner android:id="@+id/spinnerCols" android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#818CF8" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="행" android:textColor="#94A3B8" android:textSize="13sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="24dp" android:layout_marginEnd="12dp" />
+            <Spinner android:id="@+id/spinnerRows" android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#818CF8" />
+        </LinearLayout>
+
+        <!-- Sensitivity -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="감도 (낮을수록 민감)" android:textColor="#64748B"
+            android:textSize="12sp" android:textAllCaps="true" android:letterSpacing="0.08"
+            android:layout_marginTop="20dp" android:layout_marginBottom="12dp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#161B27" android:padding="16dp">
+            <TextView android:layout_width="40dp" android:layout_height="wrap_content"
+                android:text="낮음" android:textColor="#94A3B8" android:textSize="12sp" />
+            <SeekBar android:id="@+id/slSensitivity" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:max="50" android:progressTint="#818CF8" android:thumbTint="#818CF8" />
+            <TextView android:layout_width="40dp" android:layout_height="wrap_content"
+                android:text="높음" android:textColor="#94A3B8" android:textSize="12sp"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <!-- Hint -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="힌트: 세븐나이츠 기억력 게임 실행 후, 카드 격자가 화면의 어느 영역인지 슬라이더로 맞추세요. 4×4 기본값으로 시작하세요."
+            android:textColor="#556685" android:textSize="12sp" android:lineSpacingMultiplier="1.4"
+            android:layout_marginTop="16dp" android:layout_marginBottom="16dp" />
+
+        <!-- Status -->
+        <TextView android:id="@+id/tvStatus"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="" android:textColor="#818CF8" android:textSize="13sp"
+            android:gravity="center" android:lineSpacingMultiplier="1.4"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Buttons -->
+        <Button android:id="@+id/btnStart"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="시작" android:textSize="16sp" android:textColor="#FFFFFF"
+            android:backgroundTint="#4F46E5"
+            android:layout_marginBottom="12dp" />
+
+        <Button android:id="@+id/btnStop"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="중지" android:textSize="16sp" android:textColor="#FFFFFF"
+            android:backgroundTint="#374151"
+            android:enabled="false"
+            android:layout_marginBottom="32dp" />
+
+    </LinearLayout>
+</ScrollView>
