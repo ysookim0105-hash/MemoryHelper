@@ -18,17 +18,14 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Download Gradle wrapper JAR
-        run: |
-          mkdir -p gradle/wrapper
-          curl -sL https://services.gradle.org/distributions/gradle-8.4-bin.zip -o /tmp/gradle-8.4.zip
-          unzip -q /tmp/gradle-8.4.zip -d /tmp/gradle-dist
-          WRAPPER_JAR=$(find /tmp/gradle-dist -name "gradle-wrapper*.jar" | head -1)
-          echo "Found wrapper jar: $WRAPPER_JAR"
-          cp "$WRAPPER_JAR" gradle/wrapper/gradle-wrapper.jar
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.4'
 
-      - name: Make gradlew executable
-        run: chmod +x gradlew
+      - name: Generate Gradle wrapper JAR
+        run: |
+          gradle wrapper --gradle-version 8.4
+          chmod +x gradlew
 
       - name: Build debug APK
         run: ./gradlew assembleDebug
